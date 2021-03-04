@@ -56,3 +56,18 @@ def correlationdot_2D(image, kernel):
          result[y,x] = im_patch.ravel().T.dot(kernel.ravel())
 
     return result
+
+def calculate_image_gradient(image_grayscale):
+    '''
+    Calculate image gradient for grayscale image, returns two matrices the same size as the input,
+    containig Gradient Magnitude and Gradient Direction.
+    '''
+
+    sobel_x = cv2.Sobel(image_grayscale,cv2.CV_64F,1,0,ksize=5)
+    sobel_y = cv2.Sobel(image_grayscale,cv2.CV_64F,0,1,ksize=5)
+
+    g_magnitude = np.sqrt(sobel_x**2 + sobel_y**)
+    g_direction = np.arctan(np.divide(sobel_y,sobel_x))
+
+    return g_magnitude, g_direction
+
