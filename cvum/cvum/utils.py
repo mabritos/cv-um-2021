@@ -66,7 +66,7 @@ def calculate_image_gradient(image_grayscale):
     sobel_x = cv2.Sobel(image_grayscale,cv2.CV_64F,1,0,ksize=5)
     sobel_y = cv2.Sobel(image_grayscale,cv2.CV_64F,0,1,ksize=5)
 
-    g_magnitude = np.sqrt(sobel_x**2 + sobel_y**)
+    g_magnitude = np.sqrt(sobel_x**2 + sobel_y**2)
     g_direction = np.arctan(np.divide(sobel_y,sobel_x))
 
     return g_magnitude, g_direction
